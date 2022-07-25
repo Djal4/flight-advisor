@@ -20,7 +20,7 @@ return new class extends Migration
                 $table->string('password');
                 $table->string('firstname');
                 $table->string('lastname');
-                $table->string('salt');
+                $table->string('salt')->nullable();
                 $table->foreignId('role_id')->default(1)->constrained('roles');
             });
         }
