@@ -12,4 +12,10 @@ class City extends Model
     public $timestamps=false;
 
     protected $table='cities';
+
+    protected $fillable=[
+        'name',
+        'country_id',
+        'description'
+    ];
 }
