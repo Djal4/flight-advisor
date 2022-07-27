@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/Cities',[CityController::class,'index']);
+Route::get('/Cities/{number}',[CityController::class,'index']);
+Route::post('/Cities',[CityController::class,'store']);
+
+
+/*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
