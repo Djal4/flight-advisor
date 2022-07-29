@@ -22,6 +22,7 @@ return new class extends Migration
                 $table->string('lastname');
                 $table->string('salt')->nullable();
                 $table->foreignId('role_id')->default(1)->constrained('roles');
+                $table->rememberToken();
             });
         }
     }

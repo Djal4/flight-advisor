@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,12 +17,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/Cities',[CityController::class,'index']);
-Route::get('/Cities/{number}',[CityController::class,'index']);
-Route::post('/Cities',[CityController::class,'store']);
+Route::group(['middleware'=>['auth:sanctum']],function(){
+    Route::get('/Cities',[CityController::class,'index']);
+    Route::get('/Cities/{number}',[CityController::class,'index']);
+    Route::get('/City/{name}',[CityController::class,'show']);
+    Route::get('/City/{name}/{number}',[CityController::class,'show']);
+    Route::post('/Cities',[CityController::class,'store']);
+    Route::post('/Comment',[CommentController::class,'store']);
+    Route::put('/Comment/{id}',[CommentController::class,'update']);
+    Route::delete('/Comment/{id}',[CommentController::class,'destroy']);  
+});
 
+Route::post('/login',[AuthController::class,'authenticate'])->name('login');
 
-/*
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
