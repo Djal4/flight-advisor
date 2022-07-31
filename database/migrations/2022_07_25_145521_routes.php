@@ -16,6 +16,7 @@ return new class extends Migration
         if(!Schema::hasTable('routes')){
             Schema::create('routes',function(Blueprint $table){
                 $table->id();
+                $table->char('airline',3);
                 $table->foreignId('airline_id')->constrained('airlines');
                 $table->foreignId('source_airport_id')->constrained('airports');
                 $table->foreignId('destionation_airport_id')->constrained('airports');
