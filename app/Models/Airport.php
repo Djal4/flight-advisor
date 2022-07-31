@@ -12,6 +12,7 @@ class Airport extends Model
     public $timestamps=false;
 
     protected $fillable=[
+        'id',
         'name',
         'city_id',
         'iata',

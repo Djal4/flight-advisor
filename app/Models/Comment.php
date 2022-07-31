@@ -12,6 +12,9 @@ class Comment extends Model
     protected $fillable=[
         'user_id',
         'city_id',
-        'comment'
+        'comment',
+        'created_at'
     ];
+
+    public $timestamps=false;
 }
