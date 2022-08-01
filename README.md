@@ -1,6 +1,9 @@
 <h1>Flight-advisor Laravel API</h1>
 <p>
--sanctum auth
+To run application successfully first you must add some cities. If you dont add any cities, you won't be able to import airports and then routes, so application won't work.
+    Some stuff that can help(saved in storage):
+    countries.sql
+    cities.sql
 
 Setup:
 
