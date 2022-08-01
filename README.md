@@ -28,51 +28,52 @@ Non protected:<br>
 -api/login : POST<br>
     Receives user and password.Returns Bearer token.
 <br>
+<br>
 Protected:
 -api/Cities : GET
     Returns list of all cities and comments<br>
--api/Cities/number : GET
+<br>-api/Cities/number : GET
     Returns <number> of latest comments about cities<br>
--api/Cities : POST<br>
+<br>-api/Cities : POST<br>
     Imports city in database.<br>
     Should provide in request:<br>
-        name<br>
-        country_id<br>
-        description<br>
--api/City/name : GET<br>
+        &emspname<br>
+        &emspcountry_id<br>
+        &emspdescription<br>
+<br>-api/City/name : GET<br>
     Return all comments for city<br>
--api/City/name/number<br>
+<br>-api/City/name/number<br>
     Returns <number> of latest comments about searched city<br>
--api/Comment : POST<br>
+<br>-api/Comment : POST<br>
     Imports comment for particular city<br>
     Should provide in request:<br>
-        city_id<br>
-        comment<br>
--api/Comment/id : PUT<br>
+        &emspcity_id<br>
+        &emspcomment<br>
+<br>-api/Comment/id : PUT<br>
     Updates users' comment<br>
     Should provide in request:<br>
-        comment<br>
--api/Comment/id : DELETE<br>
+        &emspcomment<br>
+<br>-api/Comment/id : DELETE<br>
     Deletes users' comment<br>
--api/Airport : POST<br>
+<br>-api/Airport : POST<br>
     Receives file and imports list of airports in table<br>
     Should provide in request:<br>
-        file<br>
+        &emspfile<br>
     PS For now just .csv extensions reading.<br>
--api/Airport : GET<br>
+<br>-api/Airport : GET<br>
     Returns list of all airports<br>
--api/Airport/id : GET<br>
+<br>-api/Airport/id : GET<br>
     Returns specific airport informations.<br>
--api/Route : POST<br>
+<br>-api/Route : POST<br>
     Receives file and imports list of routes in table<br>
     Should provide in request:<br>
-    file<br>
+    &emspfile<br>
     PS For now just .csv extensions reading.<br>
--api/Route : GET<br>
+<br>-api/Route : GET<br>
     Returns list of all routes<br>
--api/Route/source/destination/<br>
+<br>-api/Route/source/destination/<br>
     Returns cheapest route from specific airport to another one<br>
     <br>
--api/logout
+<br>-api/logout
     Logs out.
  </p>
