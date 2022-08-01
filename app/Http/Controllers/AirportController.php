@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FileFormRequest;
 use App\Models\Airport;
 use Illuminate\Http\Request;
 use App\Services\FileReadService;
 use App\Services\FileStoreService;
 use App\Models\City;
+use App\Models\Country;
 use App\Models\DST;
 use App\Models\Sources;
 use App\Models\Timezones;
@@ -21,6 +23,7 @@ class AirportController extends Controller
      */
     public function index()
     {
+        $this->authorize('viewAny',Airport::class);
         return response()->json(Airport::all());
     }
 
@@ -40,12 +43,18 @@ class AirportController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FileFormRequest $request)
     {
+        $this->authorize('create',Airport::class);
+
         $file=FileStoreService::store('airports/',$request->file('file'));
 
         $data=FileReadService::read($file);
+
+        $airports=[];
+
         foreach($data as $row){
+
             $city=City::firstWhere('name',$row[2]);
             if($city){
                 $dst=DST::firstOrCreate(['title'=>$row[10]]);
@@ -53,7 +62,7 @@ class AirportController extends Controller
                 $type=Types::firstOrCreate(['title'=>$row[12]]);
                 $source=Sources::firstOrCreate(['title'=>$row[13]]);
 
-                Airport::create([
+                $airports[]=Airport::firstOrCreate(['name'=>$row[1]],[
                     'id'=>$row[0],
                     'name'=>$row[1],
                     'city_id'=>$city->id,
@@ -70,7 +79,7 @@ class AirportController extends Controller
                 ]);
             }
         }
-        return response()->json($data);
+        return response()->json($airports);
     }
 
     /**
@@ -79,8 +88,10 @@ class AirportController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Airport $airport)
+    public function show($id)
     {
+        $airport=Airport::find($id);
+        $this->authorize('view',Airport::class);
         return response()->json($airport);
     }
 }

@@ -17,9 +17,9 @@ return new class extends Migration
             Schema::create('routes',function(Blueprint $table){
                 $table->id();
                 $table->char('airline',3);
-                $table->foreignId('airline_id')->constrained('airlines');
+                $table->char('airline_id',6);
                 $table->foreignId('source_airport_id')->constrained('airports');
-                $table->foreignId('destionation_airport_id')->constrained('airports');
+                $table->foreignId('destination_airport_id')->constrained('airports');
                 $table->char('codeshare',1)->default('');
                 $table->smallInteger('stops',false,true);
                 $table->foreignId('equipment_id')->constrained('equipment');

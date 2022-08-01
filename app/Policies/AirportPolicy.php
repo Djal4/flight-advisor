@@ -16,9 +16,9 @@ class AirportPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function viewAny(User $user)
+    public function viewAny()
     {
-        //
+        return true;
     }
 
     /**
@@ -28,9 +28,9 @@ class AirportPolicy
      * @param  \App\Models\Airport  $airport
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, Airport $airport)
+    public function view()
     {
-        //
+        return true;
     }
 
     /**
@@ -39,56 +39,8 @@ class AirportPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function create(User $user)
+    public function create()
     {
-        //
-    }
-
-    /**
-     * Determine whether the user can update the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Airport  $airport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function update(User $user, Airport $airport)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Airport  $airport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function delete(User $user, Airport $airport)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can restore the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Airport  $airport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function restore(User $user, Airport $airport)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the model.
-     *
-     * @param  \App\Models\User  $user
-     * @param  \App\Models\Airport  $airport
-     * @return \Illuminate\Auth\Access\Response|bool
-     */
-    public function forceDelete(User $user, Airport $airport)
-    {
-        //
+        return User::get()->role_id==2;
     }
 }

@@ -12,6 +12,7 @@ class Airline extends Model
     public $timestamps=false;
 
     protected $fillable=[
+        'id',
         'title'
     ];
 }

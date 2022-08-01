@@ -25,7 +25,7 @@ class AuthFormRequest extends FormRequest
     {
         return [
             'username'=>'required|min:4',
-            'password'=>'required|password'
+            'password'=>'required'
         ];
     }
 }

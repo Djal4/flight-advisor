@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CommentFormRequest;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class CommentController extends Controller
 {
@@ -13,14 +15,15 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommentFormRequest $request)
     {
         $this->authorize('create',Comment::class);
         return response()->json(
             Comment::create([
-                'user_id'=>$request->user_id,
+                'user_id'=>User::get()->id,
                 'city_id'=>$request->city_id,
-                'comment'=>$request->comment
+                'comment'=>$request->comment,
+                'created_at'=>now()
             ])
         );
     }
@@ -32,8 +35,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $cmt)
+    public function update(Request $request, $id)
     {
+        $cmt=Comment::find($id);
         $this->authorize('update',$cmt);
         $cmt->comment=$request->comment;
         return response()->json(
@@ -47,8 +51,9 @@ class CommentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $cmt)
+    public function destroy($id)
     {
+        $cmt=Comment::find($id);
         $this->authorize('delete',$cmt);
         $cmt->delete();
     }

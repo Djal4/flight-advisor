@@ -24,7 +24,7 @@ class CityFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'=>'required|unique|min:3',
+            'name'=>'required|min:3',
             'country_id'=>'required|numeric|max:10',
             'description'=>'required|sometimes|min:20'
         ];

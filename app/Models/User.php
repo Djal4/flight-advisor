@@ -24,7 +24,6 @@ class User extends Authenticatable
         'password',
         'firstname',
         'lastname',
-        'salt',
         'roles_id'
     ];
 
@@ -35,13 +34,14 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
-        'remember_token'
+        'remember_token',
+        'salt'
     ];
 
     public static function get()
     {
         $headers=apache_request_headers();
         $token=explode(' ',$headers['Authorization']);
-        return User::firstWhere('remember_token',$token[1])->first();
+        return User::firstWhere('remember_token',$token[1]);
     }
 }

@@ -18,12 +18,12 @@ return new class extends Migration
                 $table->id();
                 $table->string('name');
                 $table->foreignId('city_id')->constrained('cities');
-                $table->char('iata',3)->unique()->nullable();
-                $table->char('icao',4)->unique()->nullable();
+                $table->char('iata',3)->nullable();
+                $table->char('icao',4)->nullable();
                 $table->double('latitude',20,15);
                 $table->double('longitude',20,15);
-                $table->smallInteger('altitude',false,true);
-                $table->smallInteger('timezone');
+                $table->smallInteger('altitude',false,false);
+                $table->char('timezone',3);
                 $table->foreignId('dst_id')->constrained('dst');
                 $table->foreignId('timezone_id')->constrained('timezones');
                 $table->foreignId('type_id')->constrained('types');

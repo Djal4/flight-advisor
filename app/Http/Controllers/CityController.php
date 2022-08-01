@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CityFormRequest;
 use Illuminate\Http\Request;
 use App\Models\City;
 use Illuminate\Support\Facades\DB;
@@ -47,7 +48,7 @@ class CityController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CityFormRequest $request)
     {
         $this->authorize('create',City::class);
         return response()->json(
@@ -72,7 +73,8 @@ class CityController extends Controller
             ->join('cities','comments.city_id','=','cities.id')
             ->join('users','comments.user_id','=','users.id')
             ->select('cities.name','cities.description','users.firstname','users.lastname','comments.comment')
-            ->where('cities.name',$name);
+            ->where('cities.name',$name)
+            ->orderBy('comments.created_at','desc');
 
         if($number!=0){
             $query=$query->limit($number);
