@@ -20,57 +20,57 @@ Default User accounts:
 user:password
 admin:admin  -admin account
 user:user   -regular user account
-
+<br>
 List of API Endpoints:
-
-Non protected:
--api/login : POST
+<br>
+Non protected:<br>
+-api/login : POST<br>
     Receives user and password.Returns Bearer token.
-
+<br>
 Protected:
 -api/Cities : GET
-    Returns list of all cities and comments
+    Returns list of all cities and comments<br>
 -api/Cities/number : GET
-    Returns <number> of latest comments about cities
--api/Cities : POST
-    Imports city in database.
-    Should provide in request:
-        name
-        country_id
-        description
--api/City/name : GET
-    Return all comments for city
--api/City/name/number
-    Returns <number> of latest comments about searched city
--api/Comment : POST
-    Imports comment for particular city
-    Should provide in request:
-        city_id
-        comment
--api/Comment/id : PUT
-    Updates users' comment
-    Should provide in request:
-        comment
--api/Comment/id : DELETE
-    Deletes users' comment
--api/Airport : POST
-    Receives file and imports list of airports in table
-    Should provide in request:
-        file
-    PS For now just .csv extensions reading.
--api/Airport : GET
-    Returns list of all airports
--api/Airport/id : GET
-    Returns specific airport informations.
--api/Route : POST
-    Receives file and imports list of routes in table
-    Should provide in request:
-    file
-    PS For now just .csv extensions reading.
--api/Route : GET
-    Returns list of all routes
--api/Route/source/destination/
-    Returns cheapest route from specific airport to another one
-    
+    Returns <number> of latest comments about cities<br>
+-api/Cities : POST<br>
+    Imports city in database.<br>
+    Should provide in request:<br>
+        name<br>
+        country_id<br>
+        description<br>
+-api/City/name : GET<br>
+    Return all comments for city<br>
+-api/City/name/number<br>
+    Returns <number> of latest comments about searched city<br>
+-api/Comment : POST<br>
+    Imports comment for particular city<br>
+    Should provide in request:<br>
+        city_id<br>
+        comment<br>
+-api/Comment/id : PUT<br>
+    Updates users' comment<br>
+    Should provide in request:<br>
+        comment<br>
+-api/Comment/id : DELETE<br>
+    Deletes users' comment<br>
+-api/Airport : POST<br>
+    Receives file and imports list of airports in table<br>
+    Should provide in request:<br>
+        file<br>
+    PS For now just .csv extensions reading.<br>
+-api/Airport : GET<br>
+    Returns list of all airports<br>
+-api/Airport/id : GET<br>
+    Returns specific airport informations.<br>
+-api/Route : POST<br>
+    Receives file and imports list of routes in table<br>
+    Should provide in request:<br>
+    file<br>
+    PS For now just .csv extensions reading.<br>
+-api/Route : GET<br>
+    Returns list of all routes<br>
+-api/Route/source/destination/<br>
+    Returns cheapest route from specific airport to another one<br>
+    <br>
 -api/logout
     Logs out.
