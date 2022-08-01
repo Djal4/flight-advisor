@@ -37,9 +37,9 @@ Protected:
 <br>-api/Cities : POST<br>
     Imports city in database.<br>
     Should provide in request:<br>
-        &emspname<br>
-        &emspcountry_id<br>
-        &emspdescription<br>
+        &emsp;name<br>
+        &emsp;country_id<br>
+        &emsp;description<br>
 <br>-api/City/name : GET<br>
     Return all comments for city<br>
 <br>-api/City/name/number<br>
@@ -47,18 +47,18 @@ Protected:
 <br>-api/Comment : POST<br>
     Imports comment for particular city<br>
     Should provide in request:<br>
-        &emspcity_id<br>
-        &emspcomment<br>
+        &emsp;city_id<br>
+        &emsp;comment<br>
 <br>-api/Comment/id : PUT<br>
     Updates users' comment<br>
     Should provide in request:<br>
-        &emspcomment<br>
+        &emsp;comment<br>
 <br>-api/Comment/id : DELETE<br>
     Deletes users' comment<br>
 <br>-api/Airport : POST<br>
     Receives file and imports list of airports in table<br>
     Should provide in request:<br>
-        &emspfile<br>
+        &emsp;file<br>
     PS For now just .csv extensions reading.<br>
 <br>-api/Airport : GET<br>
     Returns list of all airports<br>
@@ -67,7 +67,7 @@ Protected:
 <br>-api/Route : POST<br>
     Receives file and imports list of routes in table<br>
     Should provide in request:<br>
-    &emspfile<br>
+    &emsp;file<br>
     PS For now just .csv extensions reading.<br>
 <br>-api/Route : GET<br>
     Returns list of all routes<br>
