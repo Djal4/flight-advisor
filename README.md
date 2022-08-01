@@ -1,4 +1,5 @@
 <h1>Flight-advisor Laravel API</h1>
+<p>
 -sanctum auth
 
 Setup:
@@ -74,3 +75,4 @@ Protected:
     <br>
 -api/logout
     Logs out.
+ </p>
